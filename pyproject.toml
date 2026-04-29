@@ -6,6 +6,13 @@ authors = [{ name = "Maxim Shushanikov", email = "max.shushanikov@gmail.com" }]
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.8"
+keywords = ["project-structure", "scaffolding", "inspection", "generator"]
+
+[project.urls]
+Homepage = "https://github.com/structorex/structorex"
+Issues = "https://github.com/structorex/structorex/issues"
+Documentation = "https://structorex.github.io/structorex/"
+
 dependencies = [
     "pathspec>=0.11.0",
     "PyYAML>=6.0",

@@ -1,7 +1,7 @@
 # Structorex
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/structorex/structorex/blob/master/LICENSE)
 
 **Structorex** ist ein leistungsstarkes Kommandozeilen-Tool, das einen detaillierten Bericht über die Dateistruktur und die Inhalte deines Projekts erstellt. Es generiert eine visuelle Baumstruktur und bettet den Quellcode der Dateien direkt in den Bericht ein. Ideal für die Kontext-Erstellung für LLMs (Künstliche Intelligenz), Projektübergaben und Dokumentation.
 
@@ -117,7 +117,7 @@ structorex/
 ```
 
 ## 🤝 Mitwirken
-Beiträge sind immer willkommen! Lies unsere [CONTRIBUTING.md](CONTRIBUTING.md) für weitere Informationen.
+Beiträge sind immer willkommen! Bitte lies unsere [CONTRIBUTING.md](https://github.com/structorex/structorex/blob/master/CONTRIBUTING_DE.md) für Details zu unserem Code of Conduct und dem Prozess für Pull Requests.
 
 ## 📜 Lizenz
-Dieses Projekt ist unter der MIT-Lizenz lizenziert – siehe die [LICENSE](LICENSE) Datei für Details.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert – siehe die [LICENSE](https://github.com/structorex/structorex/blob/master/LICENSE) Datei für Details.
