@@ -7,11 +7,13 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.8"
 keywords = ["project-structure", "scaffolding", "inspection", "generator"]
-
-[project.urls]
-Homepage = "https://github.com/structorex/structorex"
-Issues = "https://github.com/structorex/structorex/issues"
-Documentation = "https://structorex.github.io/structorex/"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+  "Topic :: Software Development :: Code Generators"
+]
 
 dependencies = [
     "pathspec>=0.11.0",
@@ -20,14 +22,11 @@ dependencies = [
     "tqdm>=4.65.0",
     "charset-normalizer>=3.1.0"
 ]
-keywords = ["project-structure", "scaffolding", "inspection", "generator"]
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Environment :: Console",
-  "Topic :: Software Development :: Code Generators"
-]
+
+[project.urls]
+Homepage = "https://github.com/structorex/structorex"
+Issues = "https://github.com/structorex/structorex/issues"
+Documentation = "https://structorex.github.io/structorex/"
 
 [project.scripts]
 structorex = "structorex.cli:main"
