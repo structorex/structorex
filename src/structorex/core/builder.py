@@ -10,6 +10,7 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
+
 class ProjectBuilder:
     def __init__(self, config, file_filter):
         self.config = config
@@ -23,7 +24,8 @@ class ProjectBuilder:
         if os.path.exists(gitignore_path):
             try:
                 with open(gitignore_path, "r", encoding="utf-8") as f:
-                    return pathspec.PathSpec.from_lines(pathspec.patterns.GitWildMatchPattern, f)
+                    return pathspec.PathSpec.from_lines(
+                        pathspec.patterns.GitWildMatchPattern, f)
             except Exception as e:
                 logger.warning(f"Failed to read .gitignore: {e}")
         return None
@@ -75,7 +77,7 @@ class ProjectBuilder:
                 child = self._build_component(comp_path)
                 if child:
                     directory.add_child(child)
-                    
+
             for f in sorted(files):
                 comp_path = os.path.join(path, f)
                 child = self._build_component(comp_path)

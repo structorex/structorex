@@ -2,7 +2,6 @@ import argparse
 import json
 import os
 import sys
-from pathlib import Path
 import logging
 
 try:
@@ -32,6 +31,7 @@ DEFAULT_ALLOWED_EXTENSIONS = {
 DEFAULT_EXCLUDED_DIRS = {
     ".git", "__pycache__", ".idea", "venv", ".venv", "node_modules", ".vscode", "dist", "build", ".tox", ".pytest_cache"
 }
+
 
 class Config:
     def __init__(self):
@@ -101,11 +101,12 @@ class Config:
     def from_args(cls, args):
         config = cls()
         config.root_path = args.path
-        
+
         # Load from file first, then override with args
         config.load_from_file(config.root_path)
 
-        if args.output != "project_report.txt" or not hasattr(config, "output_file"):
+        if args.output != "project_report.txt" or not hasattr(
+                config, "output_file"):
             config.output_file = args.output
         if args.format != "text" or not hasattr(config, "output_format"):
             config.output_format = args.format
@@ -124,16 +125,58 @@ class Config:
 
     @classmethod
     def parse_cli(cls):
-        parser = argparse.ArgumentParser(description="Structorex: Project structure and content generator.")
-        parser.add_argument("path", nargs="?", default=".", help="Path to the root directory (default: current directory)")
-        parser.add_argument("-o", "--output", default="project_report.txt", help="Output file name")
-        parser.add_argument("-f", "--format", choices=["text", "json", "markdown", "html"], default="text", help="Output format")
-        parser.add_argument("-e", "--exclude", nargs="*", help="Additional directories to exclude")
-        parser.add_argument("-a", "--allowed", nargs="*", help="Override allowed file extensions (e.g. .py .txt)")
-        parser.add_argument("-m", "--max-size", type=int, default=10, help="Maximum file size in MB to read content")
-        parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose logging")
-        parser.add_argument("-s", "--show-skipped", action="store_true", help="Show skipped files in the report")
-        parser.add_argument("-z", "--export-zip", help="Create a ZIP archive of the filtered project files")
-        
+        parser = argparse.ArgumentParser(
+            description="Structorex: Project structure and content generator.")
+        parser.add_argument(
+            "path",
+            nargs="?",
+            default=".",
+            help="Path to the root directory (default: current directory)")
+        parser.add_argument(
+            "-o",
+            "--output",
+            default="project_report.txt",
+            help="Output file name")
+        parser.add_argument(
+            "-f",
+            "--format",
+            choices=[
+                "text",
+                "json",
+                "markdown",
+                "html"],
+            default="text",
+            help="Output format")
+        parser.add_argument(
+            "-e",
+            "--exclude",
+            nargs="*",
+            help="Additional directories to exclude")
+        parser.add_argument(
+            "-a",
+            "--allowed",
+            nargs="*",
+            help="Override allowed file extensions (e.g. .py .txt)")
+        parser.add_argument(
+            "-m",
+            "--max-size",
+            type=int,
+            default=10,
+            help="Maximum file size in MB to read content")
+        parser.add_argument(
+            "-v",
+            "--verbose",
+            action="store_true",
+            help="Enable verbose logging")
+        parser.add_argument(
+            "-s",
+            "--show-skipped",
+            action="store_true",
+            help="Show skipped files in the report")
+        parser.add_argument(
+            "-z",
+            "--export-zip",
+            help="Create a ZIP archive of the filtered project files")
+
         args = parser.parse_args()
         return cls.from_args(args)

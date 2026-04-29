@@ -2,9 +2,11 @@ import logging
 import os
 import zipfile
 
+
 def setup_logging(verbose: bool = False):
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(format="%(levelname)s: %(message)s", level=level)
+
 
 def create_zip_snapshot(config, visitor):
     zip_path = config.export_zip

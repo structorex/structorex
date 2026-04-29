@@ -1,6 +1,7 @@
 import os
 from abc import ABC, abstractmethod
 
+
 class FileSystemComponent(ABC):
     def __init__(self, path):
         self.path = path
@@ -10,6 +11,7 @@ class FileSystemComponent(ABC):
     def accept(self, visitor, prefix="", is_last=True):
         pass
 
+
 class FileComponent(FileSystemComponent):
     def __init__(self, path):
         super().__init__(path)
@@ -17,6 +19,7 @@ class FileComponent(FileSystemComponent):
 
     def accept(self, visitor, prefix="", is_last=True):
         visitor.visit_file(self, prefix, is_last)
+
 
 class DirectoryComponent(FileSystemComponent):
     def __init__(self, path):

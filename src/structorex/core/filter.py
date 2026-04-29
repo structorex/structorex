@@ -1,12 +1,25 @@
 import mimetypes
 import os
 
+
 class FileFilter:
     def __init__(self, allowed_extensions, max_file_size):
         self.allowed_extensions = allowed_extensions
         self.max_file_size = max_file_size
-        self.sensitive_files = {".env", "id_rsa", "id_ed25519", "secrets.yml", "secrets.json"}
-        self.sensitive_extensions = {".pem", ".key", ".p12", ".keystore", ".jks", ".pkcs12", ".pfx"}
+        self.sensitive_files = {
+            ".env",
+            "id_rsa",
+            "id_ed25519",
+            "secrets.yml",
+            "secrets.json"}
+        self.sensitive_extensions = {
+            ".pem",
+            ".key",
+            ".p12",
+            ".keystore",
+            ".jks",
+            ".pkcs12",
+            ".pfx"}
 
     def is_allowed_extension(self, filename: str) -> bool:
         ext = os.path.splitext(filename)[1].lower()
@@ -19,7 +32,8 @@ class FileFilter:
 
     def is_text_file(self, filepath: str) -> bool:
         mime, _ = mimetypes.guess_type(filepath)
-        return mime is None or mime.startswith("text/") or mime in ("application/json", "application/xml")
+        return mime is None or mime.startswith(
+            "text/") or mime in ("application/json", "application/xml")
 
     def is_within_size_limit(self, filepath: str) -> bool:
         try:
