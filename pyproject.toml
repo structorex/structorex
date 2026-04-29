@@ -1,6 +1,6 @@
 [project]
 name = "structorex"
-version = "0.2.2"
+version = "0.2.3"
 description = "Project structure generator with file content inspection"
 authors = [{ name = "Maxim Shushanikov", email = "max.shushanikov@gmail.com" }]
 readme = "README.md"
@@ -9,7 +9,6 @@ requires-python = ">=3.8"
 keywords = ["project-structure", "scaffolding", "inspection", "generator"]
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Environment :: Console",
   "Topic :: Software Development :: Code Generators"
