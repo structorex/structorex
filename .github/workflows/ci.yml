@@ -103,7 +103,7 @@ jobs:
         run: |
           VERSION=$(grep '^version =' pyproject.toml | sed -E 's/version = "(.*)"/\1/')
           echo "Current version: $VERSION"
-          if pip index versions structor --index-url https://test.pypi.org/simple/ | grep -q "$VERSION"; then
+          if pip index versions structorex --index-url https://test.pypi.org/simple/ | grep -q "$VERSION"; then
             echo "❌ Version $VERSION already exists on TestPyPI"
             exit 1
           fi
@@ -122,8 +122,8 @@ jobs:
           python -m venv venv-test
           source venv-test/bin/activate
           pip install --index-url https://test.pypi.org/simple/ \
-                      --extra-index-url https://pypi.org/simple structor
-          python -c "import app; print('✅ Package imported successfully')"
+                      --extra-index-url https://pypi.org/simple structorex
+          python -c "import structorex; print('✅ Package imported successfully')"
 
   publish-pypi:
     needs: build-test-docs
@@ -142,7 +142,7 @@ jobs:
         run: |
           VERSION=$(grep '^version =' pyproject.toml | sed -E 's/version = "(.*)"/\1/')
           echo "Current version: $VERSION"
-          if pip index versions structor | grep -q "$VERSION"; then
+          if pip index versions structorex | grep -q "$VERSION"; then
             echo "❌ Version $VERSION already exists on PyPI"
             exit 1
           fi

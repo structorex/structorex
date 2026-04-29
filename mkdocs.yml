@@ -1,7 +1,7 @@
-site_name: Filestructor
+site_name: Structorex
 site_description: Project structure generator with file content inspection
 site_author: Maxim Shushanikov
-repo_url: https://github.com/maxshushanikov/filestructor
+repo_url: https://github.com/structorex/structorex
 
 theme:
   name: material
