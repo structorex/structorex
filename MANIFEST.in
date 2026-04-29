@@ -1,4 +1,10 @@
 include LICENSE
+include LICENSE_DE
 include LICENSE_RU
 include README.md
+include README_DE.md
 include README_RU.md
+include CONTRIBUTING.md
+include CONTRIBUTING_DE.md
+include CONTRIBUTING_RU.md
+recursive-include docs *

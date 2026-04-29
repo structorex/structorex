@@ -1,12 +1,18 @@
 [project]
 name = "structorex"
-version = "0.1.1"
+version = "0.2.0"
 description = "Project structure generator with file content inspection"
 authors = [{ name = "Maxim Shushanikov", email = "max.shushanikov@gmail.com" }]
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.8"
-dependencies = []
+dependencies = [
+    "pathspec>=0.11.0",
+    "PyYAML>=6.0",
+    "tomli>=2.0.0; python_version < '3.11'",
+    "tqdm>=4.65.0",
+    "charset-normalizer>=3.1.0"
+]
 keywords = ["project-structure", "scaffolding", "inspection", "generator"]
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -17,7 +23,7 @@ classifiers = [
 ]
 
 [project.scripts]
-structorex = "app.app:main"
+structorex = "structorex.cli:main"
 
 [project.optional-dependencies]
 dev = [
@@ -30,8 +36,7 @@ dev = [
   "mkdocs>=1.5.0",
   "mkdocs-material>=9.0.0",
   "mkdocstrings[python]>=0.24.0",
-  "mkdocs-static-i18n>=0.56",
-  "PyYAML>=6.0"
+  "mkdocs-static-i18n>=0.56"
 ]
 
 [build-system]
@@ -43,8 +48,8 @@ include-package-data = true
 license-files = []
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["app*"]
+where = ["src"]
+include = ["structorex*"]
 exclude = ["site*", "tests*"]
 
 [tool.pytest.ini_options]
